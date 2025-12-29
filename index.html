@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>The Owl House</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="overlay">
+  <div class="card" id="step-1">
+    <h1>Привет! Мы рады что вы хотите посмотреть The Owl House!</h1>
+    <button class="btn primary" onclick="goToSeasons()">Продолжить</button>
+  </div>
+
+  <div class="card hidden" id="step-2">
+    <h2>Выберите сезон:</h2>
+    <button class="btn outline" onclick="goToEpisodes()">1 сезон</button>
+  </div>
+
+  <div class="card hidden wide" id="step-3">
+    <h2>Серии 1 сезона</h2>
+
+    <div class="content">
+      <div class="episodes" id="episodes"></div>
+
+      <div class="player hidden" id="player">
+        <iframe
+          id="videoFrame"
+          src=""
+          allow="autoplay; fullscreen"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
