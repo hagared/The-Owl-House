@@ -19,8 +19,8 @@ const episodes = [
   { type: "drive", url: "https://drive.google.com/file/d/11ndAbbOaIt1Hl3C4DDFEJq6boBOJaw_Y/preview" },
   { type: "drive", url: "https://drive.google.com/file/d/1PorD9Q9h6HqZaek1d90QWf9oMB7RhZhN/preview" },
 
-  // ВК-видео
-  { type: "vk", url: "https://vk.com/video_ext.php?oid=-229058224&id=456239017&hash=0000000000" }
+  // ВК видео
+  { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239017&hash=9e866861d1aa2112&hd=3" }
 ];
 
 function goToSeasons() {
@@ -46,13 +46,9 @@ function goToEpisodes() {
     btn.textContent = `${index + 1} серия`;
 
     btn.onclick = () => {
-      if (ep.type === "drive") {
-        frame.src = ep.url;
-      } else if (ep.type === "vk") {
-        frame.src = ep.url;
-      }
-      frame.width = "640";
-      frame.height = "360";
+      frame.src = ep.url;       // вставляем ссылку из массива
+      frame.width = "1280";     // размер iframe для всех видео
+      frame.height = "720";
       frame.setAttribute("allowfullscreen", "");
       player.classList.remove("hidden");
     };
