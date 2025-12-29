@@ -20,7 +20,7 @@ const episodes = [
   { type: "drive", url: "https://drive.google.com/file/d/1PorD9Q9h6HqZaek1d90QWf9oMB7RhZhN/preview" },
 
   // ✅ 19 серия — Яндекс Диск
-  { type: "yandex", url: "https://disk.yandex.ru/i/FHECHsHxDEHJwA" }
+  { type: "drive", url: "https://drive.google.com/file/d/1DqwpWcluF7QlNUtVztxNTGaUG5vGu3bq/preview" }
 ];
 
 function goToSeasons() {
