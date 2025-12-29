@@ -1,5 +1,5 @@
 const episodes = [
-  // 1 серия
+  // Google Drive видео
   { type: "drive", url: "https://drive.google.com/file/d/1HpvDwHbPywE7TqlN5bJsdFcTQYKNEts8/preview" },
   { type: "drive", url: "https://drive.google.com/file/d/1IFzG7hnPQb65tf7FuJp78O9ikP524W4s/preview" },
   { type: "drive", url: "https://drive.google.com/file/d/15mryQlukqIfVpI6q44Db6sxkv9Y8KF6C/preview" },
@@ -19,8 +19,8 @@ const episodes = [
   { type: "drive", url: "https://drive.google.com/file/d/11ndAbbOaIt1Hl3C4DDFEJq6boBOJaw_Y/preview" },
   { type: "drive", url: "https://drive.google.com/file/d/1PorD9Q9h6HqZaek1d90QWf9oMB7RhZhN/preview" },
 
-  // ✅ 19 серия — Яндекс Диск
-  { type: "drive", url: "https://drive.google.com/file/d/1DqwpWcluF7QlNUtVztxNTGaUG5vGu3bq/preview" }
+  // ВК-видео
+  { type: "vk", url: "https://vk.com/video_ext.php?oid=-229058224&id=456239017&hash=0000000000" }
 ];
 
 function goToSeasons() {
@@ -46,7 +46,14 @@ function goToEpisodes() {
     btn.textContent = `${index + 1} серия`;
 
     btn.onclick = () => {
-      frame.src = ep.url;
+      if (ep.type === "drive") {
+        frame.src = ep.url;
+      } else if (ep.type === "vk") {
+        frame.src = ep.url;
+      }
+      frame.width = "640";
+      frame.height = "360";
+      frame.setAttribute("allowfullscreen", "");
       player.classList.remove("hidden");
     };
 
