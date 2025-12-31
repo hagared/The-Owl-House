@@ -47,9 +47,25 @@ const seasons = {
     ]
   },
 
-  s2p2: { title: "2 сезон — 2 часть", episodes: [] },
-  s2p3: { title: "2 сезон — 3 часть", episodes: [] },
-  s3:   { title: "3 сезон", episodes: [] }
+  s2p2: {
+    title: "2 сезон — 2 часть",
+    episodes: [
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239060&hash=bf85746339b8d0ce&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239061&hash=da94d69943ebe932&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239062&hash=f1913b15760f57ef&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239064&hash=f143337caaa9c4a6&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239063&hash=09fc3067db617364&hd=3" }
+    ]
+  },
+
+  s3: {
+    title: "3 сезон",
+    episodes: [
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239065&hash=89dcb085148d4f8b&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239066&hash=ef1eafad0b88832f&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239067&hash=760438a5d65c5210&hd=3" }
+    ]
+  }
 };
 
 /* ====== НАВИГАЦИЯ ====== */
@@ -64,7 +80,6 @@ function backToSeasons() {
   document.getElementById("videoFrame").src = "";
 }
 
-/* ====== ОТКРЫТИЕ СЕЗОНА (БЕЗ «СКОРО») ====== */
 function openSeason(key) {
   const season = seasons[key];
   if (!season) return;
@@ -86,13 +101,11 @@ function openSeason(key) {
     const btn = document.createElement("button");
     btn.className = "btn outline";
     btn.textContent = `${index + 1} серия`;
-
     btn.onclick = () => {
       frame.src = ep.url;
       player.classList.remove("hidden");
       frame.scrollIntoView({ behavior: "smooth" });
     };
-
     episodesDiv.appendChild(btn);
   });
 }
