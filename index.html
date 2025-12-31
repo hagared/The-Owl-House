@@ -8,18 +8,27 @@
 <body>
 
 <div class="overlay">
+
+  <!-- ШАГ 1: Приветствие -->
   <div class="card" id="step-1">
     <h1>Привет! Мы рады что вы хотите посмотреть The Owl House!</h1>
     <button class="btn primary" onclick="goToSeasons()">Продолжить</button>
   </div>
 
+  <!-- ШАГ 2: Выбор сезона -->
   <div class="card hidden" id="step-2">
     <h2>Выберите сезон:</h2>
-    <button class="btn outline" onclick="goToEpisodes()">1 сезон</button>
+
+    <button class="btn outline" onclick="openSeason('s1')">1 сезон</button>
+    <button class="btn outline" onclick="openSeason('s2p1')">2 сезон 1 часть</button>
+    <button class="btn outline" onclick="openSeason('s2p2')">2 сезон 2 часть</button>
+    <button class="btn outline" onclick="openSeason('s2p3')">2 сезон 3 часть</button>
+    <button class="btn outline" onclick="openSeason('s3')">3 сезон</button>
   </div>
 
-  <div class="card hidden wide" id="step-3">
-    <h2>Серии 1 сезона</h2>
+  <!-- ШАГ 3: Серии + плеер -->
+  <div class="card wide hidden" id="step-3">
+    <h2>Серии</h2>
 
     <div class="content">
       <div class="episodes" id="episodes"></div>
@@ -28,12 +37,16 @@
         <iframe
           id="videoFrame"
           src=""
-          allow="autoplay; fullscreen"
+          allow="autoplay; fullscreen; picture-in-picture"
           allowfullscreen>
         </iframe>
       </div>
     </div>
+
+    <br>
+    <button class="btn outline" onclick="backToSeasons()">← Назад к сезонам</button>
   </div>
+
 </div>
 
 <script src="script.js"></script>
