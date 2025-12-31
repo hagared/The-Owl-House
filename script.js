@@ -28,24 +28,28 @@ const seasons = {
   s2p1: {
     title: "2 сезон — 1 часть",
     episodes: [
-      // 🔽 сюда потом добавим 16 серий
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239044&hash=9d04af8ae1b8326b&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239045&hash=455984dd077d45c2&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239046&hash=ccca72761b3819be&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239057&hash=6da5426b9fa75d7d&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239047&hash=8ae70aa2608206b6&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239048&hash=4a9e1217348a0c28&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239058&hash=e8e72bb1c54af558&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239049&hash=55fb7109831f52c1&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239050&hash=9ef6405a81fc4c68&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239051&hash=1a841fa84f6e6a41&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239052&hash=9b719e4ce6b5ebe6&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239059&hash=0d2c915772576cbb&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239053&hash=5849ea15bc531272&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239054&hash=f628d63d9aaf79f1&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239055&hash=412a25c22c307e44&hd=3" },
+      { type: "vk", url: "https://vkvideo.ru/video_ext.php?oid=-229058224&id=456239056&hash=44c0e177f34f734f&hd=3" }
     ]
   },
 
-  s2p2: {
-    title: "2 сезон — 2 часть",
-    episodes: []
-  },
-
-  s2p3: {
-    title: "2 сезон — 3 часть",
-    episodes: []
-  },
-
-  s3: {
-    title: "3 сезон",
-    episodes: []
-  }
+  s2p2: { title: "2 сезон — 2 часть", episodes: [] },
+  s2p3: { title: "2 сезон — 3 часть", episodes: [] },
+  s3:   { title: "3 сезон", episodes: [] }
 };
 
 /* ====== НАВИГАЦИЯ ====== */
@@ -57,19 +61,13 @@ function goToSeasons() {
 function backToSeasons() {
   document.getElementById("step-3").classList.add("hidden");
   document.getElementById("step-2").classList.remove("hidden");
-
-  const frame = document.getElementById("videoFrame");
-  frame.src = "";
+  document.getElementById("videoFrame").src = "";
 }
 
-/* ====== ОТКРЫТИЕ СЕЗОНА ====== */
+/* ====== ОТКРЫТИЕ СЕЗОНА (БЕЗ «СКОРО») ====== */
 function openSeason(key) {
   const season = seasons[key];
-
-  if (!season || season.episodes.length === 0) {
-    alert("Скоро будет 👀");
-    return;
-  }
+  if (!season) return;
 
   document.getElementById("step-2").classList.add("hidden");
   document.getElementById("step-3").classList.remove("hidden");
