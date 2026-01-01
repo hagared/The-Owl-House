@@ -137,3 +137,25 @@ function openSeason(key) {
   if (!season) return;
   showEpisodes(season.title, season.episodes);
 }
+
+/* ---------- ОБРАБОТЧИКИ (ВАЖНО ДЛЯ TELEGRAM) ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+
+  const btnContinue = document.getElementById("btn-continue");
+  if (btnContinue) {
+    btnContinue.addEventListener("click", showSeasons);
+    btnContinue.addEventListener("touchstart", showSeasons);
+  }
+
+  const btnS1 = document.getElementById("btn-s1");
+  const btnS2p1 = document.getElementById("btn-s2p1");
+  const btnS2p2 = document.getElementById("btn-s2p2");
+  const btnS3 = document.getElementById("btn-s3");
+
+  if (btnS1) btnS1.addEventListener("click", () => openSeason("s1"));
+  if (btnS2p1) btnS2p1.addEventListener("click", () => openSeason("s2p1"));
+  if (btnS2p2) btnS2p2.addEventListener("click", () => openSeason("s2p2"));
+  if (btnS3) btnS3.addEventListener("click", () => openSeason("s3"));
+
+});
+
