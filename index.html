@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>The Owl House</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="overlay">
 
-    <!-- Шаг 1 -->
-    <div id="step-1" class="card">
-      <h1>Привет! Мы рады что вы хотите посмотреть The Owl House!</h1>
-      <button class="btn primary" onclick="goToSeasons()">Продолжить</button>
-    </div>
+<div class="overlay">
 
-    <!-- Шаг 2 -->
-    <div id="step-2" class="card hidden">
-      <h2>Выберите сезон:</h2>
-
-      <button class="btn outline" onclick="openSeason('s1')">1 сезон</button>
-      <button class="btn outline" onclick="openSeason('s2p1')">2 сезон 1 часть</button>
-      <button class="btn outline" onclick="openSeason('s2p2')">2 сезон 2 часть</button>
-      <button class="btn outline" onclick="openSeason('s3')">3 сезон</button>
-    </div>
-
-    <!-- Шаг 3 -->
-    <div id="step-3" class="card wide hidden">
-      <button class="btn outline" onclick="backToSeasons()">← Назад</button>
-      <h2></h2>
-
-      <div class="content">
-        <div id="episodes" class="episodes"></div>
-
-        <div id="player" class="player hidden">
-          <iframe
-            id="videoFrame"
-            allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-            allowfullscreen
-            webkitallowfullscreen
-            mozallowfullscreen
-            playsinline="false"
-          ></iframe>
-        </div>
-      </div>
-    </div>
-
+  <!-- Экран приветствия -->
+  <div id="screen-welcome" class="screen">
+    <h1>Привет! Мы рады что вы хотите посмотреть The Owl House!</h1>
+    <button onclick="showSeasons()">Продолжить</button>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Выбор сезона -->
+  <div id="screen-seasons" class="screen hidden">
+    <h2>Выберите сезон:</h2>
+
+    <button onclick="openSeason('s1')">1 сезон</button>
+    <button onclick="openSeason('s2p1')">2 сезон 1 часть</button>
+    <button onclick="openSeason('s2p2')">2 сезон 2 часть</button>
+    <button onclick="openSeason('s3')">3 сезон</button>
+  </div>
+
+  <!-- Серии -->
+  <div id="screen-episodes" class="screen hidden">
+    <h2 id="episodes-title"></h2>
+    <div id="episodes"></div>
+    <button class="back" onclick="showSeasons()">← Назад</button>
+  </div>
+
+  <!-- Плеер -->
+  <div id="player" class="hidden">
+    <div class="video-wrapper" id="videoWrapper">
+      <iframe
+        id="videoFrame"
+        src=""
+        frameborder="0"
+        allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+
+      <!-- НАША кнопка fullscreen -->
+      <button class="fullscreen-btn" onclick="openFullscreen()">⛶ На весь экран</button>
+    </div>
+
+    <button class="back" onclick="closePlayer()">← К сериям</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
