@@ -20,12 +20,12 @@ body {
 
 /* Карточки */
 .card {
-  background: #ffffff;
+  background: white;
   border-radius: 16px;
   padding: 30px;
   width: 90%;
   max-width: 520px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   text-align: center;
 }
 
@@ -35,12 +35,6 @@ body {
 
 .hidden {
   display: none;
-}
-
-/* Заголовки */
-h1, h2 {
-  color: #1f2937;
-  margin-bottom: 20px;
 }
 
 /* Кнопки */
@@ -73,18 +67,18 @@ h1, h2 {
   background: #eff6ff;
 }
 
-/* Контент: серии + плеер */
+/* Контент */
 .content {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 20px;
-  align-items: flex-start;
+  margin-top: 20px;
 }
 
 .episodes {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 12px;
+  gap: 10px;
 }
 
 /* Плеер */
@@ -101,7 +95,7 @@ h1, h2 {
   border-radius: 12px;
 }
 
-/* Адаптация под телефон */
+/* Мобилки */
 @media (max-width: 900px) {
   .content {
     grid-template-columns: 1fr;
